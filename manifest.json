@@ -1,7 +1,7 @@
 {
 	"manifest_version": 3,
 	"name": "FoxPI",
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"description": "Control firefox remotely.",
 	"icons": {
 		"48": "icons/fox_48.png"

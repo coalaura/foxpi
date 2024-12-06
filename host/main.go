@@ -23,7 +23,10 @@ func main() {
 	mux := http.NewServeMux()
 
 	mux.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
-		url := r.URL.Query().Get("url")
+		query := r.URL.Query()
+
+		method := query.Get("method")
+		url := query.Get("url")
 
 		if !strings.HasPrefix(url, "http://") && !strings.HasPrefix(url, "https://") {
 			respondJSON(w, map[string]interface{}{
@@ -33,7 +36,11 @@ func main() {
 			return
 		}
 
-		response, err := request(url)
+		response, err := request(Request{
+			Method: method,
+			URL:    url,
+		})
+
 		if err != nil {
 			respondJSON(w, map[string]interface{}{
 				"error": err.Error(),

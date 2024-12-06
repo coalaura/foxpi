@@ -18,9 +18,15 @@ var (
 	receiver = make(chan Response)
 )
 
+type Request struct {
+	Method  string            `json:"method"`
+	URL     string            `json:"url"`
+	Headers map[string]string `json:"headers"`
+}
+
 type Response struct {
-	Headers map[string]string
-	Body    *string
+	Headers map[string]string `json:"headers"`
+	Body    *string           `json:"body"`
 }
 
 func read() {
@@ -64,8 +70,8 @@ func read() {
 	}
 }
 
-func request(url string) (*Response, error) {
-	message, err := json.Marshal(url)
+func request(req Request) (*Response, error) {
+	message, err := json.Marshal(req)
 	if err != nil {
 		return nil, err
 	}
