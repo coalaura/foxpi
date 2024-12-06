@@ -1,0 +1,12 @@
+{
+    "name": "foxpi",
+    "type": "module",
+    "scripts": {
+        "build": "esbuild src/fox.js --bundle --minify --outfile=dist/fox.js",
+        "watch": "npm run build -- --watch",
+        "package": "web-ext build --overwrite-dest --ignore-files src package.json package-lock.json host web-ext-artifacts"
+    },
+    "devDependencies": {
+        "esbuild": "0.19.7"
+    }
+}

@@ -1,0 +1,20 @@
+{
+	"manifest_version": 3,
+	"name": "FoxPI",
+	"version": "1.0.0",
+	"description": "Control firefox remotely.",
+	"icons": {
+		"48": "icons/fox_48.png"
+	},
+	"permissions": ["tabs", "scripting", "nativeMessaging"],
+	"host_permissions": ["<all_urls>"],
+    "background": {
+    	"scripts": ["dist/fox.js"]
+    },
+	"browser_specific_settings": {
+		"gecko": {
+			"id": "foxpi@wiese2.org",
+			"strict_min_version": "133.0"
+		}
+	}
+}

@@ -1,0 +1,7 @@
+{
+    "name": "foxpi",
+    "description": "Native messaging host for foxpi.",
+    "type": "stdio",
+    "path": "foxpi.exe",
+    "allowed_extensions": ["foxpi@wiese2.org"]
+}
